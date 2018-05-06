@@ -1,0 +1,25 @@
+@import "_Reset";
+@import "_Media";
+
+.flex{
+	display: flex;
+}
+
+.show{
+	display: block;
+}
+
+.hide{
+	display: none;
+}
+
+@for $i from 1 through 10 {
+	.flex-#{$i} { flex: $i; }
+}
+
+$flex-dir: column,row;
+@each $item in $flex-dir {
+	.flex-#{$item} {
+		flex-direction:$item;
+	}
+}

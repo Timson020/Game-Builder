@@ -1,0 +1,32 @@
+{
+  "name": "game-builder",
+  "version": "1.0.0",
+  "description": "builder for canvas game",
+  "main": "index.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "release": "gulp release"
+  },
+  "keywords": [
+    "game",
+    "builder",
+    "canvas"
+  ],
+  "author": "Timson",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "5.1.4",
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-concat-css": "3.1.0",
+    "gulp-htmlmin": "4.0.0",
+    "gulp-sass": "4.0.1",
+    "gulp-uglify": "3.0.0",
+    "gulp-uglifycss": "1.0.9",
+    "gulp.spritesmith": "6.9.0",
+    "pump": "3.0.0",
+    "webpack": "4.6.0",
+    "webpack-dev-server": "3.1.3"
+  }
+}
