@@ -1,3 +1,3 @@
-~ function() {
+~ function () {
 	console.info(1)
 }()
