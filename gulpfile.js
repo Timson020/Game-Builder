@@ -2,6 +2,7 @@ var gulp = require('gulp')
 
 var concatCss = require('gulp-concat-css')
 var uglifycss = require('gulp-uglifycss')
+var sass = require('gulp-sass')
 
 var concat = require('gulp-concat')
 var uglify = require('gulp-uglify')
@@ -54,6 +55,12 @@ gulp.task('buildJs', function() {
 	])
 })
 
+gulp.task('sass', function() {
+	return gulp.src('./src/sass/**.scss')
+		.pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+		.pipe(gulp.dest('./src/css/'))
+})
+
 gulp.task('uglifycss', function() {
 	gulp.src('./src/css/*.css').pipe(concatCss('lib.css')).pipe(uglifycss({
 		"maxLineLen": -1,
@@ -80,6 +87,10 @@ gulp.task('dev', function() {
 		console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
 	})
 
+	gulp.watch('./src/sass/**.scss', ['sass']).on('change', function(event) {
+		console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')		
+	})
+
 	gulp.watch('./src/assets/images/**', ['copyAssets']).on('change', function(event) {
 		console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
 	})
@@ -91,4 +102,4 @@ gulp.task('dev', function() {
 	})
 })
 
-gulp.task('release', ['htmlmini', 'canvasBuildJs', 'uglifycss', 'copyAssets'],function() {})
+gulp.task('release', ['htmlmini', 'canvasBuildJs', 'sass', 'uglifycss', 'copyAssets'],function() {})
