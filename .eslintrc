@@ -1,54 +1,39 @@
 {
 	"env": {
 		"browser": true,
-		"es6": false,
 	},
-	"plugins": ["html"],
 	"parserOptions": {
-		"ecmaVersion": 6,
-		"ecmaFeatures": {
-			"jsx": true
-		},
-		"sourceType": "module"
-	},
+    "sourceType": "module"
+  },
+	"plugins": ["html"],
 	"rules": {
+		"html/xml-extensions": [".html"],
+		"html/html-extensions": [".html"],
 		"indent": [2, "tab"],
-		"linebreak-style": 0,
-		"curly": 0,
 		"no-tabs": 0,
-		"no-var": 1,
-		"no-undef": 2,
-		"no-undefined": 2,
-		"no-empty": 2,
-		"no-caller": 2,
-		"no-eval": 2,
-		"no-await-in-loop": 2,
-		"no-alert": 1,
 		"no-unused-vars": 2,
-		"no-const-assign": 2,
-		"eol-last": 2,
 		"comma-dangle": [2, "always-multiline"],
 		"max-len": 0,
+		"quotes": [2, "single"],
+		"semi": [2, "never"],
+		"no-alert": 1,
 		"space-before-function-paren": ["error", {
 			"anonymous": "always",
 			"named": "never",
 			"asyncArrow": "always"
 		}],
-		"no-plusplus": 0,
-		"no-cond-assign": 0,
-		"object-curly-spacing": [2, "always"],
 		"no-console": [2, {
 			"allow": ["warn", "error", "info"],
 		}, ],
 		"no-mixed-spaces-and-tabs": 2,
-		"one-var": 0,
-		"quotes": [2, "single"],
-		"semi": [2, "never"],
+		"no-undef": 2,
+		"linebreak-style": 0,
+		"curly": 0,
+		"no-empty": 2,
+		"object-curly-spacing": [2, "always"],
+		"no-eval": 2,
+		"no-undefined": 2,
+		"no-caller": 1,
 		"no-debugger": 2,
-		"no-use-before-define": 2,
-		"no-mixed-operators": 0,
-		"no-nested-ternary": 0,
-		"no-unneeded-ternary": 0,
-		"no-return-assign": 0
 	}
 }
