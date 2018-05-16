@@ -62,7 +62,7 @@ gulp.task('sass', function () {
 })
 
 gulp.task('uglifycss', function () {
-	gulp.src('./src/css/*.css').pipe(concatCss('lib.css')).pipe(uglifycss({
+	gulp.src('./src/css/**.css').pipe(concatCss('lib.css')).pipe(uglifycss({
 		maxLineLen: -1,
 		uglyComments: true,
 	})).pipe(gulp.dest('./dist/src/css/'))
