@@ -7,27 +7,23 @@
 	// dev
 	var port = ''
 	// release
-	var port = ''
+	// var port = ''
 
 	var infix = '/'
 
 	var wAlert = window.alert
-
 	// var mobile = ''
 
 	// 请求
 	function ajax(obj) {
-		window.$.ajax({
-			url: obj.url,
-			method: obj.method,
-			data: obj.data,
-			success: function (data) {
-				var a = typeof data == 'string' ? JSON.parse(data) : data
-				obj.success(a)
-			},
-			error: function () {
-				alert('出现错误')
-			},
+		var headers = { 'content-type': 'application/json', 'yidong-token': 'xxx' }
+		window.request = ajax({ baseUrl: host + port + infix, headers: headers })
+
+		window.request[obj.method](obj.url, obj.data).then(function (response, xhr) {
+			obj.success(response, xhr)
+		}).catch(function (response, xhr) {
+			if (!obj.error) return
+			obj.error(response, xhr)
 		})
 	}
 
