@@ -14,7 +14,7 @@ var spritesmith = require('gulp.spritesmith')
 
 var defaultJs = ['./src/lib/tripledes.js', './src/lib/ajax.min.js', './src/lib/vue.js', './src/js/**.js']
 
-var canvasJs = ['./src/lib/md5.min.js', './src/lib/ajax.min.js', './src/lib/easeljs.min.js', './src/lib/preloadjs.min.js', './src/lib/soundjs.min.js', './src/lib/tweenjs.min.js', './src/js/**.js']
+var canvasJs = ['./src/lib/ajax.min.js', './src/lib/easeljs.min.js', './src/lib/preloadjs.min.js', './src/lib/soundjs.min.js', './src/lib/tweenjs.min.js', './src/js/**.js']
 
 gulp.task('sprites', function () {
 	gulp.src('./src/assets/sprites/btn-**').pipe(spritesmith({
@@ -106,4 +106,4 @@ gulp.task('dev', function () {
 	})
 })
 
-gulp.task('release', ['htmlmini', 'buildJs', 'sass', 'uglifycss', 'copyAssets'],function () {})
+gulp.task('release', ['htmlmini', 'buildJs', 'sass', 'uglifycss', 'copyAssets'], function () {})
