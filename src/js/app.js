@@ -11,22 +11,31 @@
 
 	var infix = '/'
 
+	var isCanAjax = true
+
+	var mobile = getQueryString('mobile')
+
 	var wAlert = window.alert
 
-	var CryptoJS = window.h
-
+	var CryptoJS = window._c
 	var keyHex = CryptoJS.enc.Utf8.parse('3DES加密密匙')
 	var iv = '12101754'
-	// var mobile = ''
+
+	var headers = { 'content-type': 'application/json', 'yidong-token': 'xxx' }
+
+	window.request = ajax({ baseUrl: host + port + infix, headers: headers })
 
 	// 请求
 	function ajax(obj) {
-		var headers = { 'content-type': 'application/json', 'yidong-token': 'xxx' }
-		window.request = ajax({ baseUrl: host + port + infix, headers: headers })
-
+		if (!isCanAjax) return
+		isCanAjax = false
+		obj.data = { value: encrypt(obj.data) }
 		window.request[obj.method](obj.url, obj.data).then(function (response, xhr) {
-			obj.success(response, xhr)
+			var a = decrypt(response.value)
+			isCanAjax = true
+			obj.success(a, xhr)
 		}).catch(function (response, xhr) {
+			isCanAjax = true
 			if (!obj.error) return
 			obj.error(response, xhr)
 		})
@@ -43,9 +52,8 @@
 	}
 
 	// 加密方法
-	function encrypt() {
-		var message = JSON.stringify({ a: 1, b: true })
-		return CryptoJS.TripleDES.encrypt(message, keyHex, {
+	function encrypt(msg) {
+		return CryptoJS.TripleDES.encrypt(msg, keyHex, {
 			iv: CryptoJS.enc.Utf8.parse(iv),
 			mode: CryptoJS.mode.CBC,
 			padding: CryptoJS.pad.Pkcs7,
