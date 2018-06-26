@@ -4,7 +4,8 @@
   "description": "builder for canvas game",
   "main": "index.js",
   "scripts": {
-    "init": "rm -fr package-lock.json && rm -fr yarn.lock && npm i && babel-node ./tools/init.js",
+    "init": "rm -fr package-lock.json && rm -fr yarn.lock && rm -fr .git && npm i && babel-node ./tools/init.js",
+    "test": "babel-node ./tools/init.js",
     "dev": "gulp dev",
     "release": "gulp release"
   },
@@ -21,6 +22,8 @@
     "babel-eslint": "8.2.5",
     "babel-preset-env": "1.7.0",
     "babel-preset-stage-3": "6.24.1",
+    "babel-plugin-transform-async-to-generator": "6.24.1",
+    "babel-plugin-transform-runtime": "6.23.0",
     "cross-env": "5.2.0",
     "eslint": "4.19.1",
     "eslint-plugin-html": "4.0.3",

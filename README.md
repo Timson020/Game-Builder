@@ -1,11 +1,13 @@
 [TOC]
 
-# Game-Builder
->快速搭建活动类 小游戏类型的H5
+# {{Game-Builder}}
+>{{快速搭建活动类 小游戏类型的H5}}
 
 ## Usage
 
 - git clone xxxx
+
+- npm i babel-cli -g (已经安装可以忽略)
 
 - npm i
 
@@ -13,7 +15,7 @@
 
 - 打开目录下面dist目录下的html文件即可
 
-## Cmd
+## Cmd (git-bash || linux-cmd)
 
 - npm run dev （启动开发模式）
 
