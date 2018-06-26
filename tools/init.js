@@ -33,10 +33,13 @@ function rename(name, reg, path) {
 
 // start
 function start() {
-	// const androidStats = android.data
-	// const iosStats = ios.data
+	const new_root_path = root_path.replace(/Game-Builder/ig, appName)
 	// file rename
 	rename(appName, /{{Game-Builder}}/g, md_path)
+	rename(appName, /{{快速搭建活动类 小游戏类型的H5}}/g, md_path)
+
+	fs.renameSync(`${root_path}`, `${new_root_path}`)
+
 	console.info('\x1B[36m', '----- file rename is complete -----')
 
 	console.info('\x1B[32m', '----- success, It is all complete -----')
