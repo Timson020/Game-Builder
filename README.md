@@ -9,9 +9,9 @@
 
 - npm i babel-cli -g (已经安装可以忽略)
 
-- npm i
+- npm i && npm run init
 
-- npm run dev
+- npm run release && npm run dev
 
 - 打开目录下面dist目录下的html文件即可
 
