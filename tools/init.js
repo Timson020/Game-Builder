@@ -7,8 +7,8 @@ import colors from 'colors/safe'
 const root_path = __dirname.split('tools')[0]
 
 // file path
-// const indexJS = `${root_path}index.js`
-// const packageJSON = `${root_path}package.json`
+const html_path = `${root_path}index.html`
+const package_path = `${root_path}package.json`
 const md_path = `${root_path}README.md`
 
 // function for rename the app
@@ -26,7 +26,13 @@ function start(name, description) {
 	const new_root_path = root_path.replace(/Game-Builder/ig, name)
 	// file rename
 	rename(name, /{{Game-Builder}}/g, md_path)
-	rename(description, /{{快速搭建活动类 小游戏类型的H5}}/g, md_path)
+	rename(description, /{{description}}/g, md_path)
+
+	rename(name, /{{Game-Builder}}/g, package_path)
+	rename(description, /{{description}}/g, package_path)
+
+	rename(name, /{{Game-Builder}}/g, html_path)
+	rename(description, /{{description}}/g, html_path)
 
 	fs.renameSync(`${root_path}`, `${new_root_path}`)
 

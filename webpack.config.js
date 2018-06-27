@@ -5,6 +5,8 @@ var htmlWebpackPlugin = require('html-webpack-plugin')
 
 var isProd = process.env.NODE_ENV === 'production'
 
+var port = 9000
+
 module.exports = {
 	target: 'web',
 	mode: 'development',
@@ -50,7 +52,7 @@ module.exports = {
 	},
 	devServer: {
 		host: '0.0.0.0',
-		port: 9563,
+		port: port,
 		index: './index.html',
 		compress: false,
 		hot: true,
@@ -86,6 +88,7 @@ if (isProd) {
 		})
 	])
 } else {
+	console.info(`run dev in localhost:${port}`)
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.HotModuleReplacementPlugin()
 	])	
