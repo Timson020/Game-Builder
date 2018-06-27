@@ -7,6 +7,7 @@ var isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
 	target: 'web',
+	mode: 'development',
 	entry: {
 		build: './src/app.js',
 		vendor: ['vue', 'axios']

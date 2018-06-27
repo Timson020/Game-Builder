@@ -11,7 +11,7 @@
 		"dev": "gulp dev",
 		"release": "gulp release",
 		"webpack": "cross-env NODE_ENV=development webpack-dev-server",
-		"webpackBuild": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+		"webpackBuild": "cross-env NODE_ENV=production webpack ---mode= --progress --hide-modules"
 	},
 	"keywords": [
 		"game",
@@ -22,7 +22,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"axios": "0.18.0",
-		"crypto-js": "3.1.9-1"
+		"crypto-js": "3.1.9-1",
+		"vue": "2.5.16"
 	},
 	"devDependencies": {
 		"babel-core": "6.26.3",
@@ -54,6 +55,7 @@
 		"sass-loader": "7.0.3",
 		"style-loader": "0.21.0",
 		"webpack": "4.12.2",
+		"webpack-cli": "3.0.8",
 		"webpack-dev-server": "3.1.4"
 	}
 }
