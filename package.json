@@ -1,14 +1,14 @@
 {
-  "name": "game-builder",
+  "name": "Game-Builder",
   "version": "1.0.0",
-  "description": "builder for canvas game",
+  "description": "Description",
   "main": "index.js",
   "engines": {
     "node": ">=8.9.0"
   },
   "scripts": {
-    "init": "rm -fr package-lock.json && rm -fr yarn.lock && rm -fr .git && npm i && babel-node ./tools/init.js",
-    "dev": "gulp dev",
+    "init": "rm -fr package-lock.json && rm -fr yarn.lock && rm -fr .git && npm i && babel-node ./tools/init.js && cd ..",
+    "dev": "gulp release && gulp dev",
     "release": "gulp release"
   },
   "keywords": [

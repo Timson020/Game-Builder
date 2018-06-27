@@ -1,7 +1,7 @@
 [TOC]
 
 # {{Game-Builder}}
->{{快速搭建活动类 小游戏类型的H5}}
+>{{description}}
 
 ## Usage
 
