@@ -6,13 +6,14 @@ var htmlWebpackPlugin = require('html-webpack-plugin')
 var isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
+	target: 'web',
 	entry: {
 		build: './src/app.js',
 		vendor: ['vue', 'axios']
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		publicPath: isProd ? '/' : '/dist/',
+		publicPath: isProd ? 'http://xxx.com/xxx/' : '/dist/',
 		filename: 'js/[name].js?[hash]',
 	},
 	module: {
