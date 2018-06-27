@@ -1,5 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var htmlWebpackPlugin = require('html-webpack-plugin')
 
 var isProd = process.env.NODE_ENV === 'production'
 
@@ -66,9 +68,9 @@ if (isProd) {
 		new ExtractTextPlugin('css/style.css'),
 		new htmlWebpackPlugin({
 			title: '{{name}}',
-			filename: 'index.html', //通过模板生成的文件名
-			template: 'index.html', //模板路径
-			inject: 'body', //是否自动在模板文件添加 自动生成的js文件链接
+			filename: 'index.html', // 通过模板生成的文件名
+			template: 'index.html', // 模板路径
+			inject: 'body', // 是否自动在模板文件添加 自动生成的js文件链接
 			hash: true,
 			minify: {
 				removeComments: true,
