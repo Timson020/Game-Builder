@@ -1,7 +1,7 @@
 {
-	"name": "{{Game-Builder}}",
+	"name": "Game-Builder",
 	"version": "1.0.0",
-	"description": "{{description}}",
+	"description": "Description",
 	"private": true,
 	"engines": {
 		"node": ">=8.9.0"
