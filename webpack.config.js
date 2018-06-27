@@ -67,6 +67,7 @@ module.exports = {
 }
 
 if (isProd) {
+	console.info('run build')
 	module.exports.devtool = ''
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
