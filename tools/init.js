@@ -13,15 +13,11 @@ const md_path = `${root_path}README.md`
 
 // function for rename the app
 function rename(name, reg, path) {
-	if (fs.existsSync(path)) {
-		fs.readdirSync(path).forEach((file) => {
-			const curPath = `${path}/${file}`
-			if (fs.statSync(curPath).isFile()) {
-				const contents = fs.readFileSync(curPath).toString()
-				const newContents = contents.replace(reg, name)
-				fs.writeFileSync(curPath, newContents)
-			}
-		})
+	const curPath = path
+	if (fs.statSync(curPath).isFile()) {
+		const contents = fs.readFileSync(curPath).toString()
+		const newContents = contents.replace(reg, name)
+		fs.writeFileSync(curPath, newContents)
 	}
 }
 

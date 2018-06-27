@@ -5,7 +5,7 @@
 
 ## Usage
 
-- git clone xxxx
+- git clone https://github.com/Timson020/Game-Builder.git
 
 - npm i babel-cli -g (已经安装可以忽略)
 
