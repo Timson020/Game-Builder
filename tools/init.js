@@ -28,8 +28,8 @@ function start(name, description) {
 	rename(name, /{{Game-Builder}}/g, md_path)
 	rename(description, /{{description}}/g, md_path)
 
-	rename(name, /{{Game-Builder}}/g, package_path)
-	rename(description, /{{description}}/g, package_path)
+	rename(name, /Game-Builder/g, package_path)
+	rename(description, /Description/g, package_path)
 
 	rename(name, /{{Game-Builder}}/g, html_path)
 	rename(description, /{{description}}/g, html_path)
