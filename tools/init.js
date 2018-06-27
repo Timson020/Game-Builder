@@ -45,11 +45,11 @@ function promptGet() {
 			'project-name': {
 				pattern: /^[a-zA-Z]{2,30}-[a-zA-Z]{2,30}$/ig,
 				description: colors.green('Tips: YiDong-Demo'),
-				message: colors.yellow('错误'),
+				message: colors.yellow('请看Tips'),
 				required: true,
 			},
 			'description': {
-				pattern: /^[\u4E00-\u9FA5]{3,30}$/ig,
+				pattern: /^[\u4E00-\u9FA5]{3,30}-[\u4E00-\u9FA5]{3,30}$/ig,
 				description: colors.green('Tips: xxx-xxx项目'),
 				message: colors.yellow('请输入中文描述'),
 				required: true,
