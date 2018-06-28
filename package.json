@@ -8,10 +8,8 @@
 	},
 	"scripts": {
 		"init": "rm -fr package-lock.json && rm -fr yarn.lock && rm -fr .git && npm i && babel-node ./tools/init.js && cd ..",
-		"dev": "gulp release && gulp dev",
-		"release": "gulp release",
-		"webpack": "cross-env NODE_ENV=development webpack-dev-server",
-		"webpackBuild": "cross-env NODE_ENV=production webpack ---mode= --progress --hide-modules"
+		"dev": "cross-env NODE_ENV=development webpack-dev-server",
+		"release": "cross-env NODE_ENV=production webpack ---mode= --progress --hide-modules"
 	},
 	"keywords": [
 		"game",
