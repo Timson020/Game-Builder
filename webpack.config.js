@@ -12,7 +12,7 @@ module.exports = {
 	mode: 'development',
 	entry: {
 		build: './src/app.js',
-		vendor: ['vue', 'axios']
+		vendor: ['axios']
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
