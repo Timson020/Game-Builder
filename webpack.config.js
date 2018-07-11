@@ -12,7 +12,6 @@ module.exports = {
 	mode: 'development',
 	entry: {
 		build: './src/app.js',
-		vendor: ['axios']
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
@@ -48,7 +47,7 @@ module.exports = {
 		}],
 	},
 	resolve: {
-		extensions: ['html', '.js', '.scss', '.css', '.json'],
+		extensions: ['.html', '.js', '.scss', '.css', '.json'],
 		alias: {
 			'@': path.resolve(__dirname, './src'),
 		},
@@ -91,7 +90,9 @@ if (isProd) {
 			}
 		})
 	])
-} else {
+}
+
+if (!isProd) {
 	console.info(`run dev in localhost:${port}`)
 	module.exports.plugins = (module.exports.plugins || []).concat([
 		new webpack.HotModuleReplacementPlugin()
