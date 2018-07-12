@@ -9,7 +9,7 @@
 	"scripts": {
 		"init": "rm -fr package-lock.json && rm -fr yarn.lock && rm -fr .git && npm i && babel-node ./tools/init.js && cd ..",
 		"dev": "cross-env NODE_ENV=development webpack-serve",
-		"release": "rm -fr ./dist/src && cross-env NODE_ENV=production webpack ---mode=production --progress"
+		"release": "rm -fr ./dist/src && cross-env NODE_ENV=production webpack ---mode=production --progress --hide-modules"
 	},
 	"keywords": [
 		"game",
