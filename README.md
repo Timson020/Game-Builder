@@ -3,20 +3,42 @@
 # {{Game-Builder}}
 >{{description}}
 
+## Project package
+
+- spritejs (canvas)
+- axios (request)
+- crypto-js (encrypt)
+
+## Install
+
+```
+git clone https://github.com/Timson020/Game-Builder.git
+```
+
 ## Usage
 
-- git clone https://github.com/Timson020/Game-Builder.git
+### Step 1
 
-- npm i babel-cli -g (已经安装可以忽略)
+```
+npm i babel-cli -g (已经安装可以忽略)
+```
 
-- npm i && npm run init
+### Step 2
 
-- npm run release && npm run dev
+```
+// init the project
 
-- 打开目录下面dist目录下的html文件即可
+npm i && npm run init
+```
 
-## Cmd (git-bash || linux-cmd)
+### Step 3
 
-- npm run dev （启动开发模式）
+```
+npm run dev
+```
 
-- npm run release （打生产环境源码）
+### Step 4
+
+```
+npm run release
+```
