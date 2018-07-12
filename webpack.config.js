@@ -1,22 +1,38 @@
 var path = require('path')
 var webpack = require('webpack')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var MiniCssExtractPlugin = require('mini-css-extract-plugin')
 var htmlWebpackPlugin = require('html-webpack-plugin')
 
 var isProd = process.env.NODE_ENV === 'production'
 
+// 开发环境下的端口
 var port = 9000
 
-module.exports = {
+// 生产环境的页面地址
+var host = 'http://xx.com/xx/xx'
+
+// 默认配置
+const defaultconfig = {
 	target: 'web',
+	devtool: '#eval-source-map',
+	resolve: {
+		extensions: ['.html', '.js', '.scss', '.css', '.json'],
+		alias: {
+			'@': path.resolve(__dirname, './src'),
+		},
+	}
+}
+
+// 开发配置
+const developmentconfig = {
 	mode: 'development',
 	entry: {
 		build: './src/app.js',
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		publicPath: isProd ? 'http://xxx.com/xxx/' : '/dist/',
-		filename: 'js/[name].js?[hash]',
+		publicPath: '/dist/',
+		filename: 'js/build.js',
 	},
 	module: {
 		rules: [{
@@ -28,10 +44,10 @@ module.exports = {
 			exclude: /node_modules/,
 		}, {
 			test: /\.css$/,
-			loader: !isProd ? 'style-loader!css-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }),
+			loader: 'style-loader!css-loader',
 		}, {
 			test: /\.(scss|sass)$/,
-			loader: !isProd ? 'style-loader!css-loader!sass-loader' : ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader!sass-loader' }),
+			loader: 'style-loader!css-loader!sass-loader',
 		}, {
 			test: /\.(eot|ttf|woff|woff2)$/,
 			loader: 'file-loader',
@@ -46,37 +62,77 @@ module.exports = {
 			},
 		}],
 	},
-	resolve: {
-		extensions: ['.html', '.js', '.scss', '.css', '.json'],
-		alias: {
-			'@': path.resolve(__dirname, './src'),
-		},
-	},
-	devServer: {
+	serve: {
 		host: '0.0.0.0',
 		port: port,
-		index: './index.html',
-		compress: false,
-		hot: true,
-		noInfo: true,
-		inline: true,
-		historyApiFallback: true,
+		clipboard: true,
+		hotClient: true,
+		reload: false,
+		logLevel: 'info',
+		logTime: true,
 	},
-	performance: {
-		hints: false,
-	},
-	devtool: '#eval-source-map',
 }
 
-if (isProd) {
-	console.info('run build')
-	module.exports.devtool = ''
-	module.exports.plugins = (module.exports.plugins || []).concat([
+// 生产配置
+const productionconfig = {
+	mode: 'production',
+	devtool: '',
+	entry: {
+		build: './src/app.js',
+		vendor: ['axios', 'spritejs'],
+	},
+	output: {
+		path: path.resolve(__dirname, './dist'),
+		publicPath: host,
+		filename: 'src/js/[name].js?[hash]'
+	},
+	module: {
+		rules: [{
+			test: /\.html$/,
+			loader: 'html-loader',
+		}, {
+			test: /\.js$/,
+			loader: 'babel-loader',
+			exclude: /node_modules/,
+		}, {
+			test: /\.css$/,
+			loader: MiniCssExtractPlugin.loader,
+		}, {
+			test: /\.(scss|sass)$/,
+			use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+		}, {
+			test: /\.(eot|ttf|woff|woff2)$/,
+			loader: 'file-loader',
+			options: {
+				name: 'src/font/[name].[ext]?[hash]',
+			},
+		}, {
+			test: /\.(png|jpg|gif|svg)$/,
+			loader: 'file-loader',
+			options: {
+				name: 'src/img/[name].[ext]?[hash]',
+			},
+		}],
+	},
+	optimization: {
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					name: "vendor",
+					chunks: "initial",
+					minChunks: 2,
+				},
+			},
+		},
+	},
+	plugins: [
+		// 插件中的全局变量
 		new webpack.DefinePlugin({ 'process.env': { NODE_ENV: '"production"' } }),
-		new webpack.optimize.UglifyJsPlugin({ sourceMap: true, compress: { warnings: false } }),
-		new webpack.optimize.CommonsChunkPlugin({ names: ['vendor'] }),
+		// loder里面的配置
 		new webpack.LoaderOptionsPlugin({ minimize: true }),
-		new ExtractTextPlugin('css/style.css'),
+		// css
+		new MiniCssExtractPlugin({ filename: 'src/css/style.css', chunkFilename: "[id].css" }),
+		// html
 		new htmlWebpackPlugin({
 			title: '{{name}}',
 			filename: 'index.html', // 通过模板生成的文件名
@@ -89,12 +145,9 @@ if (isProd) {
 				removeAttributeQuotes: true,
 			}
 		})
-	])
+	],
 }
 
-if (!isProd) {
-	console.info(`run dev in localhost:${port}`)
-	module.exports.plugins = (module.exports.plugins || []).concat([
-		new webpack.HotModuleReplacementPlugin()
-	])	
-}
+const config = Object.assign(defaultconfig, isProd ? productionconfig : developmentconfig)
+
+module.exports = config
