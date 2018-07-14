@@ -31,7 +31,7 @@ const developmentconfig = {
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
-		publicPath: '/dist/',
+		publicPath: './',
 		filename: 'js/build.js',
 	},
 	module: {

@@ -1,4 +1,4 @@
-import { Scene } from 'spritejs'
+import { Scene, Sprite } from 'spritejs'
 
 // 引入样式
 import '@/sass/global'
@@ -40,9 +40,12 @@ class app extends Scene {
 
 	async start(scene) {
 		this.stage = this.layer('main-container')
-		console.info(this)
-		console.info(this.stage)
-		console.info(scene)
+		const res = await this.preload(Resources)
+		// console.info(this)
+		// console.info(this.stage)
+		// console.info(scene)
+		console.info(res)
+		// this.stage.add
 	}
 }
 
