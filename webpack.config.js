@@ -63,7 +63,7 @@ const developmentconfig = {
 		}],
 	},
 	serve: {
-		host: '0.0.0.0',
+		// host: 'localhost',
 		port: port,
 		clipboard: true,
 		hotClient: true,

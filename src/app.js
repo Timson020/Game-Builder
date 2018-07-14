@@ -1,7 +1,7 @@
 import { Scene } from 'spritejs'
 
 // 引入样式
-import './sass/global'
+// import './sass/global'
 
 const scene = new Scene('#game', {
 	viewport: ['auto', 'auto'],
