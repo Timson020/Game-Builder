@@ -27,7 +27,7 @@ const defaultconfig = {
 const developmentconfig = {
 	mode: 'development',
 	entry: {
-		build: './src/app.js',
+		build: './index.js',
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
@@ -78,7 +78,7 @@ const productionconfig = {
 	mode: 'production',
 	devtool: '',
 	entry: {
-		build: './src/app.js',
+		build: './index.js',
 		vendor: ['axios', 'spritejs'],
 	},
 	output: {

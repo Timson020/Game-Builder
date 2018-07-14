@@ -2,6 +2,7 @@
 
 # {{Game-Builder}}
 >{{description}}
+>The project is in debugger
 
 ## Project package
 
