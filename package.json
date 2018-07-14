@@ -2,7 +2,7 @@
 	"name": "Game-Builder",
 	"version": "1.0.0",
 	"description": "Description",
-	"private": true,
+	"private": false,
 	"engines": {
 		"node": ">=8.9.0"
 	},
