@@ -1,5 +1,3 @@
-import { Scene, Sprite } from 'spritejs'
-
 // 引入样式
 import '@/sass/global'
 
@@ -7,51 +5,32 @@ import '@/sass/global'
 import { Constants, Resources, Utils, Services, Valitations } from './common'
 
 // class
-// import { Preload } from '@/class'
-// console.info(Valitations)
+import { Stage } from '@/class'
 
-// 初始化舞台
-// const scene = new Scene('#app', {
-// 	viewport: ['auto', 'auto'],
-// 	resolution: [Constants.width, Constants.height],
-// })
+// scene
+import { InitScene } from '@/scene'
 
-// const layout = scene.layer('first-scene')
 
-// const box1 = new Sprite({
-// 	size: [Constants.width/2, Constants.height/2],
-// 	pos: [0, 0],
-// 	border: [2, '#f77'],
-// })
-
-// layout.appendChild(box1)
-
-// // console.info(Preload)
-// console.info(Constants)
-// console.info(scene)
-
-// export default scene
-
-class app extends Scene {
-	constructor(props) {
-		super(props)
-		this.stage = null
+// 整个应用只能存在一个app
+export default class app {
+	constructor() {
+		// 初始化舞台
+		this.stage = new Stage('#app', {
+			viewport: ['auto' || Constants.width / 2, 'auto' || Constants.height / 2],
+			resolution: [Constants.width, Constants.height],
+		})
+		// 全局引用
+		window.stage = this
 	}
 
-	async start(scene) {
-		this.stage = this.layer('main-container')
-		const res = await this.preload(Resources)
-		// console.info(this)
-		// console.info(this.stage)
-		// console.info(scene)
-		console.info(res)
-		// this.stage.add
+	start() {
+		this.scene = new InitScene('init-scene', {}, this.stage)
 	}
 }
 
-const game = new app('#app', {
-	viewport: [Constants.width, Constants.height],
-	resolution: [Constants.width, Constants.height],
-})
+// const game = new app('#app', {
+// 	viewport: [Constants.width, Constants.height],
+// 	resolution: [Constants.width, Constants.height],
+// })
 
-export default game
+// export default game

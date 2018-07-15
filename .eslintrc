@@ -3,7 +3,7 @@
 		"browser": true,
 	},
 	"globals": {
-		"window": "window",
+		"window": true,
 	},
 	"parserOptions": {
     "sourceType": "module"

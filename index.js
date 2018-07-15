@@ -1,4 +1,5 @@
 import App from '@/app'
 
+new App().start()
 
-App.start()
+
