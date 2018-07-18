@@ -1,4 +1,5 @@
 {
+	"parser": "babel-eslint",
 	"env": {
 		"browser": true,
 	},
@@ -8,10 +9,8 @@
 	"parserOptions": {
     "sourceType": "module"
   },
-	"plugins": ["html"],
+	"plugins": [],
 	"rules": {
-		"html/xml-extensions": [".html"],
-		"html/html-extensions": [".html"],
 		"indent": [2, "tab"],
 		"no-tabs": 0,
 		"no-unused-vars": 2,
