@@ -29,7 +29,7 @@ npm i babel-cli -g (已经安装可以忽略)
 ```
 // init the project
 
-npm i && npm run init
+npm run init
 ```
 
 ### Step 3
