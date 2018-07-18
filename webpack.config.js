@@ -9,7 +9,7 @@ var isProd = process.env.NODE_ENV === 'production'
 var port = 9000
 
 // 生产环境的页面地址
-var host = 'http://xx.com/xx/xx'
+var host = './'
 
 // 默认配置
 const defaultconfig = {
