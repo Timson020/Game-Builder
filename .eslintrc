@@ -14,28 +14,29 @@
 		"indent": [2, "tab"],
 		"no-tabs": 0,
 		"no-unused-vars": 2,
+		"no-alert": 1,
+		"no-var": 2,
+		"no-mixed-spaces-and-tabs": 2,
+		"no-undef": 2,
+		"no-eval": 2,
+		"no-undefined": 2,
+		"no-caller": 1,
+		"no-debugger": 2,
+		"no-empty": 2,
+		"no-console": [2, {
+			"allow": ["warn", "error", "info"],
+		}],
 		"comma-dangle": [2, "always-multiline"],
 		"max-len": 0,
 		"quotes": [2, "single"],
 		"semi": [2, "never"],
-		"no-alert": 1,
 		"space-before-function-paren": ["error", {
 			"anonymous": "always",
 			"named": "never",
 			"asyncArrow": "always"
 		}],
-		"no-console": [2, {
-			"allow": ["warn", "error", "info"],
-		}, ],
-		"no-mixed-spaces-and-tabs": 2,
-		"no-undef": 2,
 		"linebreak-style": 0,
 		"curly": 0,
-		"no-empty": 2,
-		"object-curly-spacing": [2, "always"],
-		"no-eval": 2,
-		"no-undefined": 2,
-		"no-caller": 1,
-		"no-debugger": 2,
+		"object-curly-spacing": [2, "always"]
 	}
 }
