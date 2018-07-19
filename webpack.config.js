@@ -1,15 +1,15 @@
-var path = require('path')
-var webpack = require('webpack')
-var MiniCssExtractPlugin = require('mini-css-extract-plugin')
-var htmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 
-var isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production'
 
 // 开发环境下的端口
-var port = 9000
+const port = 9000
 
 // 生产环境的页面地址
-var host = './'
+const host = './'
 
 // 默认配置
 const defaultconfig = {
