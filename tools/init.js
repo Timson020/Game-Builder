@@ -49,14 +49,14 @@ function promptGet() {
 	const schema = {
 		properties: {
 			'project-name': {
-				pattern: /^[a-zA-Z]{2,30}-[a-zA-Z]{2,30}$/ig,
-				description: colors.green('Tips: YiDong-Demo'),
+				pattern: /^[a-zA-Z]{2,30}$/ig,
+				description: colors.green('Tips: Demo'),
 				message: colors.yellow('请看Tips'),
 				required: true,
 			},
 			'description': {
-				pattern: /^[\u4E00-\u9FA5]{3,30}-[\u4E00-\u9FA5]{3,30}$/ig,
-				description: colors.green('Tips: xxx-xxx项目'),
+				pattern: /^[\u4E00-\u9FA5]{3,30}$/ig,
+				description: colors.green('Tips: 中文描述'),
 				message: colors.yellow('请输入中文描述'),
 				required: true,
 			},
