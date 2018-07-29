@@ -1,14 +1,16 @@
 [TOC]
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/Timson020/Game-Builder/pulls)
+
 # {{Game-Builder}}
 >{{description}}
 >The project is in debugger
 
 ## Project package
 
-- spritejs (canvas)
-- axios (request)
-- crypto-js (encrypt)
+- [X] spritejs (canvas)
+- [X] axios (request)
+- [X] crypto-js (encrypt)
 
 ## Install
 

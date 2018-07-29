@@ -4,7 +4,7 @@
 	"description": "Description",
 	"private": false,
 	"engines": {
-		"node": ">=8.9.0"
+		"node": ">=8.11.3"
 	},
 	"scripts": {
 		"init": "rm -fr package-lock.json && rm -fr yarn.lock && rm -fr .git && npm i && babel-node ./tools/init.js && cd ..",
